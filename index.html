@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My weather app</title>
+    <!--including bootstrap in website-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  </head>
+  <body>
+
+    <!--creating navigation bar using bootstrap--> 
+    <!--Navbars require a wrapping .navbar with .navbar-expand{-sm|-md|-lg|-xl} for responsive collapsing-->
+    <!-- bg-body-tertiary-->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <!--conrainer fluid Containers are a fundamental building block of Bootstrap that contain, pad, and align your content within a given device or viewport.-->
+      <!--.container-fluid, which is width: 100% at all breakpoints-->
+      <div class="container-fluid">
+        <!--anchor tag - The <a> tag defines a hyperlink, which is used to link from one page to another.-->
+        <!--href = "#" means  the top of the page. Clicking an anchor with href="#" will move the scroll position to the top.-->
+        <a class="navbar-brand" href="#">Weather App</a>
+        <!--button tag is used to create button -->
+        <!--The navbar-toggler class is used for navigation bar toggling or responsive navbar.-->
+        <!--Collapsibles are useful when you want to hide and show large amount of content:-->
+        <!--here data-bs-toggle = "collapse" Collapsibles are useful when you want to hide and show large amount of content:-->
+        <!--Collapsibles are useful when you want to hide and show large amount of content:-->
+        <!--data-target="#id" here "#navbarSupportedContent"  attribute to connect the button with the collapsible content-->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <!--A <span> element which is used to color a part of a text-->
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <!--collapsible content  id="navbarSupportedContent" for button-->
+        <!--.collapse.navbar-collapse for grouping and hiding navbar contents by a parent breakpoint.-->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <!--ul - unordered list-->
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About this app</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Delhi</a></li>
+                <li><a class="dropdown-item" href="#">Banglore</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Noida</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled">Usage Guides</a>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input id="city" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit" id="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <h1 class="My-4 text-center" text-centre>Weather for <span id="cityName"></span></h1>
+      <main>
+        <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+          <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm">
+              <div class="card-header py-3">
+                <h4 class="my-0 fw-normal">Temperature</h4>
+              </div>
+              <div class="card-body">
+                <h1 class="card-title pricing-card-title"><span id="Temp"></span><small class="text-body-secondary fw-light"><span>&#8451;</span></small></h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li>Temperature is <span id="temp"></span></li>
+                  <li>Min Temperature is <span id="min_temp"></span></li>
+                  <li>Max Temperature is <span id="max_temp"></span></li>
+                
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm">
+              <div class="card-header py-3">
+                <h4 class="my-0 fw-normal">Humidity info</h4>
+              </div>
+              <div class="card-body">
+                <h1 class="card-title pricing-card-title"><span id="humidity2"></span><small class="text-body-secondary fw-light"> %</small></h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li>Feels_like <span id="feels_like"></span></li>
+                  <li>Humidity is <span id="humidity"></span></li>
+                  <li>Wind speed is <span id="wind_speed"></span></li>
+                  
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm border-primary">
+              <div class="card-header py-3 text-bg-primary border-primary">
+                <h4 class="my-0 fw-normal">Wind info</h4>
+              </div>
+              <div class="card-body">
+                <h1 class="card-title pricing-card-title"><span id="wind_speed2"></span><small class="text-body-secondary fw-light"> km/hr</small></h1>
+                <ul class="list-unstyled mt-3 mb-4">
+                  <li>Sunset time is <span id="sunset"></span></li>
+                  <li>Sunrise time is <span id="sunrise"></span></li>
+                  <li>Wind degreees is <span id="wind_degrees"></span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <h2 class="display-6 text-center mb-4">Weather of other commom city</h2>
+    
+        <div class="table-responsive">
+          <table class="table text-center">
+            <thead>
+              <tr>
+                <th style="width: 34%;"></th>
+
+                <th style="width: 22%;">Humidity</th>
+                <th style="width: 22%;">Temp</th>
+                <th style="width: 22%;">Max_temp</th>
+                <th style="width: 22%;">Min_temp</th>
+                <th style="width: 22%;">Wind_degrees</th>
+                <th style="width: 22%;">Wind_speed</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" class="text-start">Chennai</th>
+                <td id="hum1">31</td>
+                <td id="temp1">210</td>
+                <td id="max1">31</td>
+                <td id="min1">31</td>
+                <td id="wd1">1.54</td>
+                <td id="ws1">31</td>
+            
+              </tr>
+              <tr>
+                <th scope="row" class="text-start">Ranchi</th>
+                <td id="hum2">31</td>
+                <td id="temp2">210</td>
+                <td id="max2">31</td>
+                <td id="min2">31</td>
+                <td id="wd2">1.54</td>
+                <td id="ws2">31</td>
+
+                
+              </tr>
+            </tbody>
+    
+            <tbody>
+              <tr>
+                <th scope="row" class="text-start">Pune</th>
+                <td id="hum3">31</td>
+                <td id="temp3">210</td>
+                <td id="max3">31</td>
+                <td id="min3">31</td>
+                <td id="wd3">1.54</td>
+                <td id="ws3">31</td>
+                
+              </tr>
+              <tr>
+                <th scope="row" class="text-start">Bangalore</th>
+                <td id="hum4">31</td>
+                <td id="temp4">210</td>
+                <td id="max4">31</td>
+                <td id="min4">31</td>
+                <td id="wd4">1.54</td>
+                <td id="ws4">31</td>
+               
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
